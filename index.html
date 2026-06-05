@@ -19,17 +19,13 @@
 
     </div>
 
-    <script>
+     <script>
         inputtask = document.getElementById('inputtask');
         tasklist = document.getElementById('tasklist');
-        
         function add() {
             if(inputtask.value != "") {
                 let li = document.createElement('li');
-                 li.innerHTML = `
-                <span>${inputtask.value}</span>
-                <button onclick="complete(this)">✓</button>
-                <button onclick="remove(this)">X</button>`;
+                li.innerHTML = inputtask.value + "<button onclick=remove(this)>X</button> ";
                 tasklist.appendChild(li);
                 inputtask.value = "";
             }
@@ -37,11 +33,6 @@
 
         function remove (elem) {
             elem.parentElement.remove();
-        }
-        function complete(elem) {
-        let task = elem.parentElement.querySelector('span');
-        task.style.textDecoration = "line-through";
-        task.style.color = "gray";
     }
     </script>
 
